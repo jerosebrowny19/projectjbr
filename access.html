@@ -1,0 +1,31 @@
+<!-- Your HTML form with the radio button -->
+<form id="loginForm" action="login.php" method="post">
+    <!-- Other form elements -->
+
+    <label>
+        <input type="radio" name="accessRadio" id="accessOn" value="on" checked> Access On
+    </label>
+    <label>
+        <input type="radio" name="accessRadio" id="accessOff" value="off"> Access Off
+    </label>
+
+   <!-- <input type="submit" value="Login">-->
+   
+</form>
+ 
+
+<!-- Include this script in your HTML file -->
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+        // Check the state of the radio button
+        var accessRadio = document.querySelector('input[name="accessRadio"]:checked');
+        
+        if (accessRadio && accessRadio.value === 'off') {
+            // Prevent the form submission
+            event.preventDefault();
+            
+            // Display a modal or alert message
+            alert('Access denied. Please turn on access to proceed.');
+        }
+    });
+</script>
